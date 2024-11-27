@@ -1,14 +1,12 @@
-const Job = require("../models/jobModel");
+const jobService = require("../services/jobService");
 
 async function getUnpaidJobsByContract(req, res) {
   const { contractId } = req.params;
   try {
-    const jobs = await Job.findAll({
-      where: { contractId, paid: 0 },
-    });
+    const jobs = await jobService.getUnpaidJobsByContract(contractId);
     res.status(200).json(jobs);
   } catch (error) {
-    res.status(500).json({ error: "Erro ao listar jobs não pagos" });
+    res.status(500).json({ error: error.message });
   }
 }
 

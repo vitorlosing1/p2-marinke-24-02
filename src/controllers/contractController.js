@@ -1,14 +1,12 @@
-const Contract = require("../models/contractModel");
+const contractService = require("../services/contractService");
 
 async function getContractsByProfile(req, res) {
   const { profileId } = req.params;
   try {
-    const contracts = await Contract.findAll({
-      where: { clientId: profileId },
-    });
+    const contracts = await contractService.getContractsByProfile(profileId);
     res.status(200).json(contracts);
   } catch (error) {
-    res.status(500).json({ error: "Erro ao listar contratos" });
+    res.status(500).json({ error: error.message });
   }
 }
 

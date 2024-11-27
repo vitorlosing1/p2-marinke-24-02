@@ -17,10 +17,6 @@ const Contract = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    contractDate: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
     operationDate: {
       type: DataTypes.DATE,
       allowNull: false,
