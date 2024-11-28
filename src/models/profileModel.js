@@ -1,6 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/dbConfig");
 const Deposit = require("./depositModel");
+const Contract = require("./contractModel");
 
 const Profile = sequelize.define(
   "Profile",
