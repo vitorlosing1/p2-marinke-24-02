@@ -31,4 +31,7 @@ const Contract = sequelize.define(
   }
 );
 
+Contract.hasMany(Job, { foreignKey: "contractId" });
+Job.belongsTo(Contract, { foreignKey: "contractId" });
+
 module.exports = Contract;

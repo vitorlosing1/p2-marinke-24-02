@@ -39,4 +39,7 @@ const Job = sequelize.define(
   }
 );
 
+Job.hasMany(Payment, { foreignKey: "jobId" });
+Payment.belongsTo(Job, { foreignKey: "jobId" });
+
 module.exports = Job;

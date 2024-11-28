@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/dbConfig");
+const Deposit = require("./depositModel");
 
 const Profile = sequelize.define(
   "Profile",
@@ -34,5 +35,11 @@ const Profile = sequelize.define(
     timestamps: false,
   }
 );
+
+Profile.hasMany(Deposit, { foreignKey: "clientId" });
+Deposit.belongsTo(Profile, { foreignKey: "clientId" });
+
+Profile.hasMany(Contract, { foreignKey: "clientId" });
+Contract.belongsTo(Profile, { foreignKey: "clientId" });
 
 module.exports = Profile;

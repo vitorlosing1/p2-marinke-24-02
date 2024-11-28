@@ -9,9 +9,9 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/api/contracts", contractRoutes);
-app.use("/api/deposits", depositRoutes);
-app.use("/api/jobs", jobRoutes);
+app.use("/contracts", contractRoutes);
+app.use("/deposits", depositRoutes);
+app.use("/jobs", jobRoutes);
 
 (async () => {
   try {
